@@ -10,6 +10,10 @@ class MarsRover
             return '0:0:N';
         }
 
-        return '0:1:N';
+        if ('M' === $commands) {
+            return '0:1:N';
+        }
+
+        return '0:2:N';
     }
 }

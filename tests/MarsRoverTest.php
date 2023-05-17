@@ -31,4 +31,14 @@ class MarsRoverTest extends TestCase
 
         $this->assertEquals('0:1:N', $position);
     }
+
+    #[Test]
+    public function should_move_forward_twice(): void
+    {
+
+        $marsRover = new MarsRover();
+        $position = $marsRover->execute('MM');
+
+        $this->assertEquals('0:2:N', $position);
+    }
 }
