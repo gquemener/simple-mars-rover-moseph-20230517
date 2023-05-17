@@ -6,6 +6,6 @@ class MarsRover
 {
     public function execute(string $commands): string
     {
-        return '0:'.strlen($commands).':N';
+        return '0:'.(strlen($commands)%10).':N';
     }
 }
