@@ -48,7 +48,8 @@ class MarsRoverTest extends TestCase
     #[Test]
     public function should_return_to_initial_position_when_crossing_the_top_edge(): void
     {
-        $position = $this->marsRover->execute('MMMMMMMMMM');
+        $crossTheTopEdge = 'MMMMMMMMMM';
+        $position = $this->marsRover->execute($crossTheTopEdge);
 
         $this->assertEquals('0:0:N', $position);
     }
