@@ -14,11 +14,17 @@ use PHPUnit\Framework\TestCase;
  */
 class MarsRoverTest extends TestCase
 {
+    private MarsRover $marsRover;
+
+    protected function setUp(): void
+    {
+        $this->marsRover = new MarsRover();
+    }
+
     #[Test]
     public function should_not_move_when_executing_nothing(): void
     {
-        $marsRover = new MarsRover();
-        $position = $marsRover->execute('');
+        $position = $this->marsRover->execute('');
 
         $this->assertEquals('0:0:N', $position);
     }
@@ -26,8 +32,7 @@ class MarsRoverTest extends TestCase
     #[Test]
     public function should_move_forward(): void
     {
-        $marsRover = new MarsRover();
-        $position = $marsRover->execute('M');
+        $position = $this->marsRover->execute('M');
 
         $this->assertEquals('0:1:N', $position);
     }
@@ -35,8 +40,7 @@ class MarsRoverTest extends TestCase
     #[Test]
     public function should_move_forward_twice(): void
     {
-        $marsRover = new MarsRover();
-        $position = $marsRover->execute('MM');
+        $position = $this->marsRover->execute('MM');
 
         $this->assertEquals('0:2:N', $position);
     }
@@ -44,8 +48,7 @@ class MarsRoverTest extends TestCase
     #[Test]
     public function should_return_to_initial_position_when_crossing_the_top_edge(): void
     {
-        $marsRover = new MarsRover();
-        $position = $marsRover->execute('MMMMMMMMMM');
+        $position = $this->marsRover->execute('MMMMMMMMMM');
 
         $this->assertEquals('0:0:N', $position);
     }
