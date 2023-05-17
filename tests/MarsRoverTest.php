@@ -6,6 +6,12 @@ use GQ\Kata\MarsRover;
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
 
+/**
+ * Rules:
+ * - starts at 0:0:N
+ * - can turn right, left and move forward
+ * - comes back to the other side of the grid
+ */
 class MarsRoverTest extends TestCase
 {
     #[Test]
