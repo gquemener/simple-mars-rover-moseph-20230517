@@ -6,6 +6,10 @@ class MarsRover
 {
     public function execute(string $commands): string
     {
-        return (empty($commands)) ? '0:0:N' : '0:1:N';
+        if (empty($commands)) {
+            return '0:0:N';
+        }
+
+        return '0:1:N';
     }
 }
