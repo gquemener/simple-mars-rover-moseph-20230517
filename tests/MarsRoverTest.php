@@ -3,6 +3,7 @@
 namespace GQ\Kata\Tests;
 
 use GQ\Kata\MarsRover;
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
 
@@ -29,20 +30,23 @@ class MarsRoverTest extends TestCase
         $this->assertEquals('0:0:N', $position);
     }
 
-    #[Test]
-    public function should_move_forward(): void
+    #[
+        Test,
+        DataProvider('should_move_forward_provider')
+    ]
+    public function should_move_forward(string $commands, int $y): void
     {
-        $position = $this->marsRover->execute('M');
+        $position = $this->marsRover->execute($commands);
 
-        $this->assertEquals('0:1:N', $position);
+        $this->assertEquals(sprintf('0:%d:N', $y), $position);
     }
 
-    #[Test]
-    public function should_move_forward_twice(): void
+    public static function should_move_forward_provider(): array
     {
-        $position = $this->marsRover->execute('MM');
-
-        $this->assertEquals('0:2:N', $position);
+        return [
+            ['M', 1],
+            ['MM', 2],
+        ];
     }
 
     #[Test]
