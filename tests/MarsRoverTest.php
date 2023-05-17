@@ -46,6 +46,13 @@ class MarsRoverTest extends TestCase
         return [
             ['M', 1],
             ['MM', 2],
+            ['MMM', 3],
+            ['MMMM', 4],
+            ['MMMMM', 5],
+            ['MMMMMM', 6],
+            ['MMMMMMM', 7],
+            ['MMMMMMMM', 8],
+            ['MMMMMMMMM', 9],
         ];
     }
 
